@@ -1,0 +1,63 @@
+<div id="modalUser" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div style="padding: 5%;" *ngIf="user">
+        <h2>{{ user.nome }}</h2>
+        <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input [(ngModel)]="user.nome" type="text" class="form-control" id="inputNome" placeholder="Seu nome">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputCpf">CPF</label>
+            <input [(ngModel)]="user.cpf" type="text" class="form-control" id="inputCpf" placeholder="Seu CPF">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputDataNascimento">Data de Nascimento</label>
+            <input [(ngModel)]="user.datanascimento" type="date" class="form-control" id="inputDataNascimento">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputCelular">Celular</label>
+            <input [(ngModel)]="user.celular" type="text" class="form-control" name="inputCelular" id="inputCelular" placeholder="(00) 00000-0000">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputEmail">E-mail</label>
+            <input [(ngModel)]="user.email" type="text" class="form-control" id="inputEmail" placeholder="Seu E-mail">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputEndereco">Endereço</label>
+            <input [(ngModel)]="user.endereco" type="text" class="form-control" id="inputEndereco" placeholder="Seu endereço">
+        </div>
+    
+        <div class="form-group">
+            <label for="inputCidade">Cidade</label>
+            <input [(ngModel)]="user.cidade" type="text" class="form-control" id="inputCidade" placeholder="Sua cidade">
+        </div>
+        
+        <label>Sexo</label>
+        <div class="form-row" style="display: inline;">
+            <div class="form-check" >
+                <input [(ngModel)]="user.sexo" class="form-check-input" type="radio" name="radioSexo" id="radioSexoMasculino" value="M" checked>
+                <label class="form-check-label" for="radioSexoMasculino">
+                    Masculino
+                </label>
+            </div>
+            <div class="form-check">
+                <input [(ngModel)]="user.sexo" class="form-check-input" type="radio" name="radioSexo" id="radioSexoFeminino" value="F">
+                <label class="form-check-label" for="radioSexoFeminino">
+                    Feminino
+                </label>
+            </div>
+        </div>
+        <br />
+            <button type="button" class="btn btn-success" (click)="updateUser(user)" *ngIf="user.id">Salvar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user)" *ngIf="user.id">Excluir</button>
+            <button type="button" class="btn btn-primary" (click)="createUser(user)" *ngIf="!user.id">Adicionar</button>
+    </div>
+    </div>
+  </div>
+</div>
